@@ -1,7 +1,7 @@
 # MySpace -> work-in-progress
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-MySpace is a profile management application specially for ESIS students.
+MySpace is a profile management application specially for ESIS students
 
 ## For full documentation, check out the [wiki page](https://github.com/josh-Muleshi/MySpace/wiki)
 
