@@ -12,7 +12,7 @@ MySpace is a profile management application specially for ESIS students
     - [Css](https://fr.wikipedia.org/wiki/Feuilles_de_style_en_cascade)
     - [Bootstrap](https://getbootstrap.com/)
     - [React js](https://fr.reactjs.org/)
-- Back-end
+- Back-end.
     - [PHP](https://www.php.net/)
 - Database
     - [Firebase](https://firebase.google.com/)
