@@ -1,0 +1,19 @@
+{
+    "name": "myspace/myspace",
+    "description": "MySpace is a profile management application specially for ESIS students",
+    "require-dev": {
+        "ext-pdo": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Myspace\\Myspace\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Excellence KAWEJ",
+            "email": "19ka201@esisalama.org"
+        }
+    ],
+    "require": {}
+}
