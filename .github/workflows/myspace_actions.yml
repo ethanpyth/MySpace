@@ -22,6 +22,6 @@ jobs:
         # Token for the repository. Can be passed in using {{ secrets.GITHUB_TOKEN }}
         repo-token: secrets.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
         # Comment to post on an individual's first issue
-        issue-message: "" # optional
+        issue-message: "your issue was set" # optional
         # Comment to post on an individual's first pull request
-        pr-message: "" # optional 
+        pr-message: "your pull-request was satisfied all requirements" # optional 
