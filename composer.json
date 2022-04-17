@@ -15,5 +15,7 @@
             "email": "19ka201@esisalama.org"
         }
     ],
-    "require": {}
+    "require": {
+        "vlucas/phpdotenv": "^5.4"
+    }
 }
