@@ -20,7 +20,7 @@ jobs:
       uses: actions/first-interaction@v1.1.0
       with:
         # Token for the repository. Can be passed in using {{ secrets.GITHUB_TOKEN }}
-        repo-token: secrets.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
+        repo-token:  ${{ secrets.GITHUB_TOKEN }}
         # Comment to post on an individual's first issue
         issue-message: "your issue was set" # optional
         # Comment to post on an individual's first pull request
