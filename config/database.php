@@ -1,20 +1,11 @@
 <?php
 
 /**
- * Php Class to get databse instance
+ * Php file to get databse instance
  */
-class Database {
-    private static $instance = NULL;
 
-    private function __construct() {}
+use kreait\Firebase\Factory;
 
-    private function __clone() {}
+$factory = (new Factory)->withServiceAccount('../myspace-5a8f6-firebase-adminsdk-t77xw-981a4fab82.json');
 
-    public static function getInstance() {
-        if (!isset(self::$instance)) {
-            $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
-            self::$instance = new PDO('mysql:host=localhost;dbname=myspace', 'root', '', $pdo_options);
-        }
-        return self::$instance;
-    }
-}
+$database = $factory->createDatabase();
