@@ -6,6 +6,6 @@
 
 use kreait\Firebase\Factory;
 
-$factory = (new Factory)->withServiceAccount('../myspace-5a8f6-firebase-adminsdk-t77xw-981a4fab82.json');
+$factory = (new Factory)->withServiceAccount($_ENV['PATH_MYSPACE_JSON']);
 
 $database = $factory->createDatabase();
