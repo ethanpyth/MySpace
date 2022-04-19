@@ -12,9 +12,9 @@ jobs:
     name: Analyze
     runs-on: ubuntu-latest
     permissions:
-      actions: read
-      contents: read
-      security-events: write
+      actions: read|write
+      contents: read|write
+      security-events: read|write
     steps:
     - name: First interaction
       uses: actions/first-interaction@v1.1.0
