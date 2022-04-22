@@ -1,3 +1,5 @@
+<?php
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +9,6 @@
     <title>MySpace-Modifier le profil</title>
 </head>
 <body>
-    
+    header
 </body>
 </html>
