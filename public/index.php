@@ -15,7 +15,7 @@
     $router = new AltoRouter();
 
     $router->map('GET', '/', function(){
-        echo "salut";
+        require '../src/View/home.php';
     });
     $router->map('GET', '/home', function(){
         echo 'home';
