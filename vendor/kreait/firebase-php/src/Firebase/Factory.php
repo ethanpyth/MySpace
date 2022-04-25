@@ -5,11 +5,13 @@ declare(strict_types=1);
 namespace Kreait\Firebase;
 
 use Beste\Clock\SystemClock;
+use Beste\Clock\WrappingClock;
 use Google\Auth\ApplicationDefaultCredentials;
 use Google\Auth\Cache\MemoryCacheItemPool;
 use Google\Auth\Credentials\ServiceAccountCredentials;
 use Google\Auth\CredentialsLoader;
 use Google\Auth\FetchAuthTokenCache;
+use Google\Auth\FetchAuthTokenInterface;
 use Google\Auth\HttpHandler\HttpHandlerFactory;
 use Google\Auth\Middleware\AuthTokenMiddleware;
 use Google\Auth\ProjectIdProviderInterface;
@@ -33,10 +35,10 @@ use Kreait\Firebase\JWT\IdTokenVerifier;
 use Kreait\Firebase\JWT\SessionCookieVerifier;
 use Kreait\Firebase\Value\Email;
 use Psr\Cache\CacheItemPoolInterface;
-use Psr\Clock\ClockInterface;
 use Psr\Http\Message\UriInterface;
 use Psr\Log\LoggerInterface;
 use Psr\Log\LogLevel;
+use StellaMaris\Clock\ClockInterface;
 use Throwable;
 
 final class Factory
@@ -58,7 +60,7 @@ final class Factory
 
     private ?ServiceAccount $serviceAccount = null;
 
-    private ?CredentialsLoader $googleAuthTokenCredentials = null;
+    private ?FetchAuthTokenInterface $googleAuthTokenCredentials = null;
 
     private ?string $projectId = null;
 
@@ -228,8 +230,12 @@ final class Factory
         return $factory;
     }
 
-    public function withClock(ClockInterface $clock): self
+    public function withClock(object $clock): self
     {
+        if (!$clock instanceof ClockInterface) {
+            $clock = WrappingClock::wrapping($clock);
+        }
+
         $factory = clone $this;
         $factory->clock = $clock;
 
@@ -355,7 +361,7 @@ final class Factory
 
         $httpClient = $this->createApiClient();
 
-        $signInHandler = new Firebase\Auth\SignIn\GuzzleHandler($httpClient);
+        $signInHandler = new Firebase\Auth\SignIn\GuzzleHandler($projectId, $httpClient);
         $authApiClient = new Auth\ApiClient($projectId, $this->tenantId, $httpClient, $signInHandler, $this->clock);
         $customTokenGenerator = $this->createCustomTokenGenerator();
         $idTokenVerifier = $this->createIdTokenVerifier();
@@ -616,7 +622,7 @@ final class Factory
 
         $credentials = $this->getGoogleAuthTokenCredentials();
 
-        if (!($credentials instanceof CredentialsLoader) && $this->discoveryIsDisabled) {
+        if (!($credentials instanceof FetchAuthTokenInterface) && $this->discoveryIsDisabled) {
             throw new RuntimeException('Unable to create an API client without credentials');
         }
 
@@ -638,7 +644,7 @@ final class Factory
         return new Client($config);
     }
 
-    private function getGoogleAuthTokenCredentials(): ?CredentialsLoader
+    private function getGoogleAuthTokenCredentials(): ?FetchAuthTokenInterface
     {
         if ($this->googleAuthTokenCredentials !== null) {
             return $this->googleAuthTokenCredentials;

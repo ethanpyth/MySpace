@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+## [6.3.0] - 2022-04-24
+
+### Added
+
+* Added support for the Firebase Auth Emulator.
+  ([#692](https://github.com/kreait/firebase-php/pull/692)) ([Documentation](https://firebase-php.readthedocs.io/en/latest/testing.html))
+* Tenant aware session cookie handling is now officially supported.
+
 ## [6.2.0] - 2022-03-03
 
 ### Added
@@ -139,7 +147,8 @@ methods.
     * `Kreait\Firebase\Value\Uid`
     * `Kreait\Firebase\Value\Url`
 
-[Unreleased]: https://github.com/kreait/firebase-php/compare/6.2.0...6.x
+[Unreleased]: https://github.com/kreait/firebase-php/compare/6.3.0...6.x
+[6.3.0]: https://github.com/kreait/firebase-php/compare/6.2.0...6.3.0
 [6.2.0]: https://github.com/kreait/firebase-php/compare/6.1.0...6.2.0
 [6.1.0]: https://github.com/kreait/firebase-php/compare/6.0.1...6.1.0
 [6.0.1]: https://github.com/kreait/firebase-php/compare/6.0.0...6.0.1
