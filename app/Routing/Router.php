@@ -14,7 +14,7 @@
     );
     $router->map(
         'GET', '/home', function () {
-            echo 'home';
+            require '../src/View/home.php';
         }, 'home'
     );
 

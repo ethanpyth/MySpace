@@ -1,5 +1,5 @@
 <?php
-
+    include '../app/Routing/Router.php';
     /**
      * @package myspace
      * 
@@ -8,5 +8,3 @@
      * 
      * @author Josh Muleshi <jmuleshi2@gmail.com>
      */
-
-     echo "MySpace";
