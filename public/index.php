@@ -1,5 +1,4 @@
 <?php
-
     /**
      * @package myspace
      * 
@@ -8,7 +7,6 @@
      * 
      * @author Josh Muleshi <jmuleshi2@gmail.com>
      */
-
     require '../vendor/autoload.php';
 
     $uri = $_SERVER['REQUEST_URI'];
