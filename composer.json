@@ -6,7 +6,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Myspace\\Myspace\\": "src/"
+            "Myspace\\": "views/",
+            "Route\\": "route/"
         }
     },
     "authors": [
